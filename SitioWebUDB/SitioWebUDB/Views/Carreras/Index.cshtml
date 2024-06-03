@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SitioWebUDB.Models.Carrera>
+
+@{
+    ViewBag.Title = "Carreras";
+}
+
+<div class="row">
+    <div class="col-12">
+        @Html.ActionLink("<<<", "Index", "Administracion", null, new { @class = "btn btn-secondary btn-sm" })
+        <span class="titulo">ADMINISTRACION > CARRERAS</span>
+    </div>
+</div>
+
+<hr />
+
+@Html.ActionLink("(+) Nuevo", "RegistrarForm", "Carreras", null, new { @class = "btn btn-outline-primary btn-sm" })
+
+<table class="table table-bordered table-hover mt-2">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var carrera in Model) {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => carrera.IdCarrera)</td>
+                <td>@Html.DisplayFor(modelItem => carrera.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => carrera.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => carrera.Facultad)</td>
+                <td>
+                    @Html.ActionLink("✏️", "ModificarForm", "Carreras", new { id = carrera.IdCarrera }, new { @class = "btn btn-outline-success btn-sm" })
+                    @Html.ActionLink("🗑️", "ActIna", "Carreras", new { id = carrera.IdCarrera }, new { @class = "btn btn-outline-danger btn-sm" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

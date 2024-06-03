@@ -1,0 +1,35 @@
+﻿@model SitioWebUDB.Models.Facultad
+
+@{
+    ViewBag.Title = "Registrar Facultad";
+}
+
+<div class="row">
+    <div class="col-12">
+        @Html.ActionLink("<<<", "Index", "Facultades", null, new { @class = "btn btn-secondary btn-sm" })
+        <span class="titulo">ADMINISTRACION > FACULTAD > REGISTRAR</span>
+    </div>
+</div>
+
+<hr />
+
+@using (Html.BeginForm("Registrar", "Facultades", FormMethod.Post)) {
+    <div class="row">
+        <div class="col-2">
+            <div class="mb-3">
+                @Html.LabelFor(facultad => facultad.Nombre, "Nombre", (new { @style = "font-weight:bold" }))
+                @Html.TextBoxFor(facultad => facultad.Nombre, "", (new { @class = "form-control" }))
+                @Html.ValidationMessageFor(facultad => facultad.Nombre, "", (new { @class = "text-danger" }))
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(facultad => facultad.Descripcion, "Descripcion", (new { @style = "font-weight:bold" }))
+                @Html.TextBoxFor(facultad => facultad.Descripcion, "", (new { @class = "form-control" }))
+                @Html.ValidationMessageFor(facultad => facultad.Descripcion, "", (new { @class = "text-danger" }))
+            </div>
+            <div class="mb-3 d-grid">
+                <input type="submit" class="btn btn-primary" value="Registrar" />
+            </div>
+        </div>
+        <div class="col-10"></div>
+    </div>
+}

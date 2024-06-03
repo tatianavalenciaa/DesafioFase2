@@ -1,0 +1,26 @@
+﻿@model IEnumerable<SitioWebUDB.Models.Facultad>
+
+@{
+    ViewBag.Title = "Facultades";
+}
+
+<main>
+
+    <div class="row mt-5">
+        <h3>Facultades</h3>
+    </div>
+
+    <div class="row">
+        @foreach (var facultad in Model) {
+            <div class="card mt-3">
+                <div class="card-header text-white bg-primary">
+                    @Html.DisplayFor(modelItem => facultad.Nombre)
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@Html.DisplayFor(modelItem => facultad.Descripcion)</p>
+                    @Html.ActionLink("Ver Carreras", "Carreras", "Home", new { idFacultad = facultad.IdFacultad }, new { @class = "btn btn-outline-primary btn-sm" })
+                </div>
+            </div>
+        }
+    </div>
+</main>

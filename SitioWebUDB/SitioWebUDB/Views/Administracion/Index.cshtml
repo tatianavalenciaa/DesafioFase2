@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Administracion";
+}
+
+<div class="row">
+    <div class="col-12">
+        <span class="titulo">ADMINISTRACION</span>
+    </div>
+</div>
+
+<hr />
+
+<div class="list-group">
+    @Html.ActionLink("Noticias", "Index", "Noticias", null, new { @class = "list-group-item list-group-item-action" })
+    @Html.ActionLink("Facultades", "Index", "Facultades", null, new { @class = "list-group-item list-group-item-action" })
+    @Html.ActionLink("Carreras", "Index", "Carreras", null, new { @class = "list-group-item list-group-item-action" })
+</div>

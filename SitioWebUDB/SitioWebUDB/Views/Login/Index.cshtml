@@ -1,0 +1,48 @@
+﻿@model SitioWebUDB.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="row mb-3">
+    <div class="col-12 text-center">
+        <h3 class="color-utec">UNIVERSIDAD DON BOSCO</h3>
+    </div>
+</div>
+@using (Html.BeginForm("IniciarSesion", "Login", FormMethod.Post)) {
+    <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <div class="mb-3 text-center">
+                <img src="~/Content/img/logo-udb-claro.jpg" alt="" width="150px" height="150px" />
+            </div>
+            <div class="mb-3 text-center">
+                <h3>Login</h3>
+            </div>
+            <hr />
+            <div class="mb-3">
+                @Html.LabelFor(login => login.Usuario, "Usuario: ", (new { @style = "font-weight:bold" }))
+                @Html.TextBoxFor(login => login.Usuario, "", (new { @class = "form-control" }))
+            </div>
+            <div class="mb-3">
+                @Html.LabelFor(login => login.Password, "Password: ", (new { @style = "font-weight:bold" }))
+                @Html.PasswordFor(login => login.Password, (new { @class = "form-control" }))
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-secondary" value="Iniciar Sesion" />
+            </div>
+
+            @if (TempData["Msj"] != null) {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["Msj"]
+                </div>
+            }
+        </div>
+        <div class="col-sm-12 col-md-4 col-lg-4">
+
+        </div>
+    </div>
+}
+

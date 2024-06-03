@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SitioWebUDB.Models.Noticia>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<main>
+    <div class="row">
+        <img src="~/Content/img/promo-udb.jpg" />
+    </div>
+
+    <div class="row mt-5">
+        <h3>Noticias</h3>
+    </div>
+
+    <div class="row">
+        @foreach (var noticia in Model) {
+            <div class="card mt-3">
+                <div class="card-header text-white bg-primary">
+                    📰 @Html.DisplayFor(modelItem => noticia.FechaCrea)
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => noticia.Titulo)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => noticia.Descripcion)</p>
+                </div>
+            </div>
+        }
+    </div>
+</main>
